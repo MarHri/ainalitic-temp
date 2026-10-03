@@ -108,6 +108,28 @@
     border-color:var(--accent);
   }
 
+  .app-links{
+    margin-top:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem;
+  }
+  .app-links a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    padding-bottom:3px;
+    border-bottom:1px solid var(--rule);
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .app-links a:hover, .app-links a:focus-visible{
+    color:var(--accent);
+    border-color:var(--accent);
+  }
+
   footer{
     position:absolute;
     bottom:28px;
@@ -151,6 +173,11 @@
 
 <div class="contact">
   <a href="mailto:ainalitic@mail.bg">ainalitic@mail.bg</a>
+</div>
+
+<div class="app-links">
+  <a href="#">ScreenGym on Google Play &rarr;</a>
+  <a href="screengym-terms.html">ScreenGym &mdash; Terms &amp; Privacy &rarr;</a>
 </div>
 
 <footer>&copy; 2026 Ainalitic. All rights reserved.</footer>
