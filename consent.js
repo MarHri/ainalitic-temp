@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = 'G-PL1G920XRP';
 
   var STORAGE_KEY = 'ainalitic_cookie_consent';
   var MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // ask again after 12 months
