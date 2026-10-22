@@ -112,18 +112,18 @@
   .combo-input:focus-within { border-color: #94A3B8; }
   .combo-input svg { width: 16px; height: 16px; stroke: var(--text-dim); flex-shrink: 0; }
   .combo-input input {
-    border: none; outline: none; flex: 1; font-size: 14px; background: transparent; color: var(--text);
+    border: none; outline: none; flex: 1; font-size: 16px; background: transparent; color: var(--text);
     font-family: inherit;
   }
   .combo-input input::placeholder { color: var(--text-dim); }
   .combo-clear { background: none; border: none; cursor: pointer; color: var(--text-dim); display: flex; padding: 0; }
   .combo-clear svg { width: 16px; height: 16px; }
   .combo-list {
-    position: absolute; z-index: 20; margin-top: 4px; width: 100%; max-height: 256px; overflow: auto;
+    position: absolute; z-index: 20; margin-top: 4px; width: 100%; max-height: 300px; overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
     border: 1px solid var(--border); border-radius: 12px; background: white; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   }
   .combo-item {
-    width: 100%; text-align: left; padding: 8px 14px; font-size: 13px; background: none; border: none; cursor: pointer;
+    width: 100%; text-align: left; padding: 11px 14px; font-size: 14px; background: none; border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: space-between; font-family: inherit;
   }
   .combo-item.highlighted { background: #F0FBFB; }
@@ -1038,14 +1038,44 @@ let comboOpen = false;
 let comboPool = [];
 let comboHighlight = -1;
 
+const COUNTRY_ALIASES = {
+  "Turkey": "turkiye türkiye турция",
+  "United States": "usa us u.s.a america сащ америка",
+  "United Kingdom": "uk u.k. britain great britain england великобритания англия",
+  "United Arab Emirates": "uae оае dubai дубай емирства",
+  "Czech Republic": "czechia чехия",
+  "Netherlands": "holland холандия",
+  "South Korea": "korea южна корея",
+  "North Macedonia": "macedonia македония",
+  "Russia": "русия",
+  "Vietnam": "виетнам"
+};
+function normSearch(x) {
+  return String(x || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim();
+}
+function comboScore(c, q) {
+  const names = [normSearch(c), normSearch(COUNTRY_BG[c] || ""), normSearch(COUNTRY_ALIASES[c] || "")];
+  let best = 99;
+  if (names[2] && names[2].split(" ").indexOf(q) !== -1) return -1;
+  names.forEach(n => {
+    if (!n) return;
+    if (n.startsWith(q)) best = Math.min(best, 0);
+    else if (n.split(/[\s(),\/-]+/).some(w => w.startsWith(q))) best = Math.min(best, 1);
+    else if (n.includes(q)) best = Math.min(best, 2);
+  });
+  return best;
+}
 function renderCombo(query) {
-  const list = document.getElementById("comboList");
-  const q = query.toLowerCase();
-  let pool = query
-    ? COUNTRIES.filter(c => c.toLowerCase().includes(q) || countryLabel(c).toLowerCase().includes(q))
-    : COUNTRIES.slice();
-  pool = pool.sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), state.lang === "bg" ? "bg" : "en"));
-  comboPool = pool.slice(0, 60);
+  const q = normSearch(query);
+  const loc = state.lang === "bg" ? "bg" : "en";
+  let pool;
+  if (!q) {
+    pool = COUNTRIES.slice().sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), loc));
+  } else {
+    pool = COUNTRIES.map(c => ({ c, sc: comboScore(c, q) })).filter(x => x.sc < 99)
+      .sort((x, y) => x.sc - y.sc || countryLabel(x.c).localeCompare(countryLabel(y.c), loc)).map(x => x.c);
+  }
+  comboPool = pool;
   comboHighlight = comboPool.length ? 0 : -1;
   renderComboList();
 }
@@ -1062,7 +1092,8 @@ function renderComboList() {
   list.querySelectorAll("[data-country]").forEach(btn => {
     btn.addEventListener("mouseenter", () => {
       comboHighlight = parseInt(btn.dataset.idx, 10);
-      renderComboList();
+      list.querySelectorAll(".combo-item.highlighted").forEach(el => el.classList.remove("highlighted"));
+      btn.classList.add("highlighted");
     });
     btn.addEventListener("click", () => {
       state.destination = btn.dataset.country;
