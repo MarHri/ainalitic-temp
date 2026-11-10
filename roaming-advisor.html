@@ -12,49 +12,56 @@
 <meta property="og:description" content="Compare travel eSIMs and operator roaming for your destination and find the cheapest option.">
 <meta property="og:url" content="https://ainalitic.com/roaming-advisor.html">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "eSIM & Roaming Advisor", "url": "https://ainalitic.com/roaming-advisor.html", "applicationCategory": "TravelApplication", "operatingSystem": "Any", "description": "Compare eSIM and operator roaming offers for your destination and find the cheapest way to get mobile data abroad.", "publisher": {"@type": "Organization", "name": "Ainalitic", "url": "https://ainalitic.com/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is an eSIM cheaper than roaming?", "acceptedAnswer": {"@type": "Answer", "text": "Often, but not always. In the EU/EEA you usually pay your normal home rates, so you may not need an eSIM at all. Outside the EU, a travel eSIM is frequently cheaper than your operator's roaming packages, especially for longer trips or heavy data use. The advisor compares both for your destination."}}, {"@type": "Question", "name": "What is an eSIM?", "acceptedAnswer": {"@type": "Answer", "text": "An eSIM is a digital SIM built into your phone. You install it by scanning a QR code, with no physical card. Your phone must support eSIM and be unlocked."}}, {"@type": "Question", "name": "Can I keep my normal number with an eSIM?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Most travel eSIMs add a second, data-only line, so your normal SIM stays active for calls and SMS. Messaging apps such as WhatsApp or Viber keep working over the eSIM data."}}, {"@type": "Question", "name": "How accurate are the prices?", "acceptedAnswer": {"@type": "Answer", "text": "The advisor gives estimates based on published offers and your expected usage. Prices and terms change, so always confirm the final price with the provider before you buy."}}, {"@type": "Question", "name": "Do I need to buy anything for the EU?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not. EU/EEA roaming rules let you use your home plan at no extra charge, subject to your operator's fair-use limits. The advisor tells you when this applies."}}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #12363B;
-    --paper: #F4F6F5;
-    --teal: #0F8B8D;
-    --teal-dark: #0d7476;
-    --amber: #b45309;
-    --amber-bg: #FFFBEB;
-    --amber-border: #FDE68A;
-    --border: #E2E8F0;
-    --text: #1E293B;
-    --text-mid: #475569;
-    --text-dim: #94A3B8;
+    --ink: #1C1E1B;
+    --paper: #EFEEE9;
+    --card: #F7F6F2;
+    --accent: #0E6FA4;
+    --accent-tint: #E4EDF3;
+    --teal: #1F8A6F;
+    --teal-dark: #17705A;
+    --green-tint: #E3EEE9;
+    --amber: #9A4A0A;
+    --amber-bg: #FBF3E3;
+    --amber-border: #E6CF9C;
+    --border: #CBC7BB;
+    --text: #1C1E1B;
+    --text-mid: #4A4C46;
+    --text-dim: #6B6D66;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     background: var(--paper);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: var(--text);
   }
   .wrap { max-width: 780px; margin: 0 auto; padding: 40px 16px 64px; }
   .header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
-  .lang-toggle { display: flex; gap: 4px; flex-shrink: 0; background: white; border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+  .lang-toggle { display: flex; gap: 4px; flex-shrink: 0; background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 3px; }
   .lang-btn {
-    border: none; background: none; border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 700;
+    border: none; background: none; border-radius: 3px; padding: 5px 12px; font-size: 12px; font-weight: 700;
     color: var(--text-dim); cursor: pointer; font-family: inherit;
   }
   .lang-btn.active { background: var(--ink); color: white; }
   .logo {
-    width: 40px; height: 40px; border-radius: 12px; background: var(--ink);
+    width: 40px; height: 40px; border-radius: 6px; background: var(--ink);
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
   .logo svg { width: 20px; height: 20px; stroke: white; }
-  h1 { font-size: 22px; font-weight: 700; margin: 0; letter-spacing: -0.02em; color: #0F172A; }
+  h1 { font-size: 22px; font-weight: 700; margin: 0; letter-spacing: -0.02em; color: #1C1E1B; }
   .subtitle { font-size: 13px; color: var(--text-dim); margin: 2px 0 0; }
 
   .card {
-    margin-top: 24px; background: white; border: 1px solid var(--border);
-    border-radius: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); padding: 24px;
+    margin-top: 24px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; box-shadow: 0 1px 2px rgba(28,30,27,0.05); padding: 24px;
   }
   @media (min-width: 640px) { .card { padding: 28px; } }
-  .summary-card { margin-top: 32px; border: 2px solid #94A3B8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08); }
+  .summary-card { margin-top: 32px; border: 2px solid #8C8A80; box-shadow: 0 4px 12px rgba(28,30,27,0.10); }
 
   .section { margin-bottom: 28px; }
   .section:last-child { margin-bottom: 0; }
@@ -62,10 +69,10 @@
     display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
   }
   .section-num {
-    width: 24px; height: 24px; border-radius: 999px; background: var(--ink); color: white;
+    width: 24px; height: 24px; border-radius: 3px; background: var(--ink); color: white;
     font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #64748B; }
+  .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #4A4C46; }
   .section-hint { font-size: 12px; color: var(--text-dim); margin: -6px 0 12px 32px; }
   .clear-operator-btn {
     display: block; font-size: 11.5px; font-weight: 600; color: var(--teal-dark); background: none; border: none;
@@ -74,42 +81,42 @@
 
   .home-badge {
     display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-mid);
-    background: #F8FAFC; border-radius: 999px; padding: 4px 12px; margin-bottom: 12px;
+    background: #F3F2ED; border-radius: 3px; padding: 4px 12px; margin-bottom: 12px;
   }
 
   .op-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
   .revolut-row {
-    margin-top: 14px; padding-top: 14px; border-top: 1px solid #F1F5F9;
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid #E7E5DE;
     display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   }
-  .revolut-label { font-size: 12.5px; font-weight: 600; color: #334155; }
+  .revolut-label { font-size: 12.5px; font-weight: 600; color: #1C1E1B; }
   .revolut-sub { font-size: 11px; color: var(--text-dim); flex: 1; min-width: 160px; }
   .revolut-btns { display: flex; gap: 6px; flex-shrink: 0; }
   .revolut-btn {
-    border: 2px solid var(--border); background: white; border-radius: 999px; padding: 5px 14px;
+    border: 2px solid var(--border); background: var(--card); border-radius: 3px; padding: 5px 14px;
     font-size: 12px; font-weight: 600; color: var(--text-mid); cursor: pointer; font-family: inherit;
   }
   .revolut-btn.active { border-color: #0666EB; background: #EAF1FE; color: #0666EB; }
   .op-btn {
-    border: 2px solid var(--border); border-radius: 12px; padding: 16px 12px; text-align: left;
-    background: white; cursor: pointer; transition: box-shadow .15s, border-color .15s;
+    border: 2px solid var(--border); border-radius: 6px; padding: 16px 12px; text-align: left;
+    background: var(--card); cursor: pointer; transition: box-shadow .15s, border-color .15s;
     font-family: inherit;
   }
-  .op-btn:hover { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .op-btn.active { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .op-btn:hover { box-shadow: 0 1px 4px rgba(28,30,27,0.07); }
+  .op-btn.active { box-shadow: 0 2px 8px rgba(28,30,27,0.09); }
   .op-chip {
-    width: 32px; height: 32px; border-radius: 8px; margin-bottom: 12px;
+    width: 32px; height: 32px; border-radius: 3px; margin-bottom: 12px;
     display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 11px;
   }
-  .op-name { font-weight: 600; font-size: 13px; color: #1E293B; }
+  .op-name { font-weight: 600; font-size: 13px; color: #1C1E1B; }
 
   .combo { position: relative; }
   .combo-input {
-    display: flex; align-items: center; gap: 8px; border: 2px solid var(--border); border-radius: 12px;
-    padding: 12px 14px; background: white; cursor: text;
+    display: flex; align-items: center; gap: 8px; border: 2px solid var(--border); border-radius: 6px;
+    padding: 12px 14px; background: var(--card); cursor: text;
   }
-  .combo-input:focus-within { border-color: #94A3B8; }
+  .combo-input:focus-within { border-color: #8C8A80; }
   .combo-input svg { width: 16px; height: 16px; stroke: var(--text-dim); flex-shrink: 0; }
   .combo-input input {
     border: none; outline: none; flex: 1; font-size: 16px; background: transparent; color: var(--text);
@@ -120,15 +127,15 @@
   .combo-clear svg { width: 16px; height: 16px; }
   .combo-list {
     position: absolute; z-index: 20; margin-top: 4px; width: 100%; max-height: 300px; overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
-    border: 1px solid var(--border); border-radius: 12px; background: white; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border: 1px solid var(--border); border-radius: 6px; background: var(--card); box-shadow: 0 8px 24px rgba(28,30,27,0.12);
   }
   .combo-item {
     width: 100%; text-align: left; padding: 11px 14px; font-size: 14px; background: none; border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: space-between; font-family: inherit;
   }
-  .combo-item.highlighted { background: #F0FBFB; }
-  .combo-item:hover { background: #F8FAFC; }
-  .combo-item .cname { color: #334155; }
+  .combo-item.highlighted { background: #E3EEE9; }
+  .combo-item:hover { background: #F3F2ED; }
+  .combo-item .cname { color: #1C1E1B; }
   .combo-item .cregion { font-size: 11px; color: var(--text-dim); }
   .combo-empty { padding: 12px 14px; font-size: 13px; color: var(--text-dim); }
 
@@ -137,30 +144,30 @@
 
   .stepper { display: flex; align-items: center; gap: 12px; }
   .step-btn {
-    width: 40px; height: 40px; border-radius: 10px; border: 2px solid var(--border); background: white;
+    width: 40px; height: 40px; border-radius: 4px; border: 2px solid var(--border); background: var(--card);
     font-weight: 700; font-size: 16px; color: var(--text-mid); cursor: pointer;
   }
-  .step-btn:hover { background: #F8FAFC; }
+  .step-btn:hover { background: #F3F2ED; }
   .step-value { flex: 1; text-align: center; }
-  .step-num { font-size: 24px; font-weight: 700; color: #1E293B; font-variant-numeric: tabular-nums; }
+  .step-num { font-size: 24px; font-weight: 700; color: #1C1E1B; font-variant-numeric: tabular-nums; }
   .step-unit { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
 
   .usage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .usage-btn {
-    border: 2px solid var(--border); border-radius: 12px; padding: 12px; text-align: left; background: white;
+    border: 2px solid var(--border); border-radius: 6px; padding: 12px; text-align: left; background: var(--card);
     cursor: pointer; font-family: inherit;
   }
-  .usage-btn:hover { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .usage-btn.active { border-color: var(--teal); background: #F0FBFB; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .usage-btn:hover { box-shadow: 0 1px 4px rgba(28,30,27,0.07); }
+  .usage-btn.active { border-color: var(--teal); background: #E3EEE9; box-shadow: 0 2px 8px rgba(28,30,27,0.07); }
   .usage-btn svg { width: 16px; height: 16px; margin-bottom: 8px; stroke: var(--text-dim); }
   .usage-btn.active svg { stroke: var(--teal-dark); }
-  .usage-name { font-weight: 600; font-size: 13px; color: #1E293B; }
+  .usage-name { font-weight: 600; font-size: 13px; color: #1C1E1B; }
   .usage-desc { font-size: 11px; color: var(--text-dim); margin-top: 2px; line-height: 1.3; }
   .usage-rate { font-size: 10.5px; color: var(--teal-dark); font-weight: 700; margin-top: 6px; font-variant-numeric: tabular-nums; }
 
   .estimate {
     display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-dim);
-    padding-top: 16px; margin-top: 4px; border-top: 1px solid #F1F5F9;
+    padding-top: 16px; margin-top: 4px; border-top: 1px solid #E7E5DE;
   }
   .estimate svg { width: 14px; height: 14px; flex-shrink: 0; }
 
@@ -170,66 +177,66 @@
   .summary-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center; }
   @media (min-width: 640px) { .summary-grid { grid-template-columns: 1fr 1fr 1fr; } }
   .summary-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); margin-bottom: 4px; }
-  .summary-price { font-size: 24px; font-weight: 700; color: #1E293B; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+  .summary-price { font-size: 24px; font-weight: 700; color: #1C1E1B; font-family: 'JetBrains Mono', ui-monospace, monospace; }
   .summary-price.teal { color: var(--teal-dark); }
   .summary-sub { font-size: 12px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .summary-center { display: flex; justify-content: center; }
   .savings-pill {
-    display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 8px 16px;
+    display: inline-flex; align-items: center; gap: 8px; border-radius: 3px; padding: 8px 16px;
     font-size: 14px; font-weight: 600;
   }
-  .savings-pill.good { background: #F0FBFB; color: var(--teal-dark); }
-  .savings-pill.neutral { background: #F8FAFC; color: #64748B; }
+  .savings-pill.good { background: #E3EEE9; color: var(--teal-dark); }
+  .savings-pill.neutral { background: #F3F2ED; color: #4A4C46; }
   .savings-pill svg { width: 16px; height: 16px; }
 
   .warn-box {
-    background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 16px; padding: 16px;
+    background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 6px; padding: 16px;
     font-size: 13px; color: var(--amber); display: flex; align-items: center; gap: 8px; margin-top: 20px;
   }
   .warn-box svg { width: 16px; height: 16px; flex-shrink: 0; }
 
   .eu-banner {
-    background: #F0FBFB; border: 1px solid #BFEAEA; border-radius: 16px; padding: 16px 18px;
+    background: #E3EEE9; border: 1px solid #B9D6CB; border-radius: 6px; padding: 16px 18px;
     display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px;
   }
   .eu-banner svg { width: 18px; height: 18px; flex-shrink: 0; stroke: var(--teal-dark); margin-top: 1px; }
   .eu-banner-title { font-size: 13.5px; font-weight: 700; color: var(--teal-dark); margin-bottom: 3px; }
-  .eu-banner-text { font-size: 12.5px; color: #1E4E4F; line-height: 1.5; }
+  .eu-banner-text { font-size: 12.5px; color: #1F4D40; line-height: 1.5; }
 
   .list-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); margin: 24px 4px 12px; }
   .tickets { display: flex; flex-direction: column; gap: 10px; }
 
-  .ticket { position: relative; display: flex; border: 1px solid var(--border); border-radius: 12px; background: white; overflow: hidden; }
-  .ticket.best { border-color: var(--teal); box-shadow: 0 0 0 2px #E6F7F7; }
+  .ticket { position: relative; display: flex; border: 1px solid var(--border); border-radius: 6px; background: var(--card); overflow: hidden; }
+  .ticket.best { border-color: var(--teal); box-shadow: 0 0 0 2px #D6E8E0; }
   .ticket-bar { width: 6px; flex-shrink: 0; }
   .ticket-body { flex: 1; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .ticket-main { min-width: 0; }
   .ticket-tags { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-  .ticket-provider { font-size: 13px; font-weight: 600; color: #1E293B; }
+  .ticket-provider { font-size: 13px; font-weight: 600; color: #1C1E1B; }
   .tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; padding: 2px 6px; border-radius: 6px; }
-  .tag.esim { background: #F0FBFB; color: var(--teal-dark); }
-  .tag.yours { background: #F1F5F9; color: #475569; }
+  .tag.esim { background: #E3EEE9; color: var(--teal-dark); }
+  .tag.yours { background: #E7E5DE; color: #4A4C46; }
   .tag.best { background: var(--teal); color: white; }
   .ticket-plan { font-size: 12px; color: var(--text-dim); margin-top: 2px; max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .ticket-meta { display: flex; align-items: center; gap: 10px; margin-top: 6px; font-size: 11px; color: var(--text-dim); flex-wrap: wrap; }
   .ticket-meta .short { display: flex; align-items: center; gap: 4px; color: var(--amber); font-weight: 600; }
   .ticket-meta .short svg { width: 11px; height: 11px; }
-  .ticket-note { font-size: 10.5px; color: #B0B9C4; margin-top: 4px; }
+  .ticket-note { font-size: 10.5px; color: #6B6D66; margin-top: 4px; }
   .activation-warning {
     display: flex; align-items: flex-start; gap: 6px; font-size: 11px; font-weight: 700; color: var(--amber);
-    background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 8px;
+    background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 3px;
     padding: 6px 9px; margin-top: 8px; line-height: 1.5;
   }
   .activation-warning svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 2px; }
   .ticket-price { text-align: right; flex-shrink: 0; }
-  .ticket-cost { font-size: 17px; font-weight: 700; color: #1E293B; font-variant-numeric: tabular-nums; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+  .ticket-cost { font-size: 17px; font-weight: 700; color: #1C1E1B; font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', ui-monospace, monospace; }
   .ticket-cost-label { font-size: 10.5px; color: var(--text-dim); }
   .ticket-link {
     display: inline-flex; align-items: center; gap: 3px; margin-top: 6px; font-size: 11px; font-weight: 600;
-    color: var(--teal-dark); text-decoration: none; border: 1px solid #BFEAEA; border-radius: 999px;
-    padding: 3px 9px; background: #F0FBFB;
+    color: var(--teal-dark); text-decoration: none; border: 1px solid #B9D6CB; border-radius: 3px;
+    padding: 3px 9px; background: #E3EEE9;
   }
-  .ticket-link:hover { background: #E6F7F7; }
+  .ticket-link:hover { background: #D6E8E0; }
   .ticket-link svg { width: 11px; height: 11px; }
 
   .footnote { font-size: 11px; color: var(--text-dim); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 16px; margin-top: 24px; }
@@ -237,71 +244,71 @@
   .more-options { margin-top: 16px; }
   .more-options summary {
     cursor: pointer; list-style: none; font-size: 12.5px; font-weight: 600; color: var(--text-mid);
-    padding: 10px 14px; background: #F8FAFC; border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px 14px; background: #F3F2ED; border: 1px solid var(--border); border-radius: 4px;
     display: flex; align-items: center; gap: 6px; user-select: none;
   }
   .more-options summary::-webkit-details-marker { display: none; }
   .more-options summary::before { content: "▸"; font-size: 10px; color: var(--text-dim); transition: transform .15s; }
   .more-options[open] summary::before { transform: rotate(90deg); }
-  .more-options summary:hover { background: #F1F5F9; }
+  .more-options summary:hover { background: #E7E5DE; }
 
   .mode-tabs { display: flex; gap: 8px; margin-top: 20px; }
   .mode-tab {
-    flex: 1; border: 2px solid var(--border); background: white; border-radius: 12px; padding: 12px 14px;
+    flex: 1; border: 2px solid var(--border); background: var(--card); border-radius: 6px; padding: 12px 14px;
     text-align: left; cursor: pointer; font-family: inherit;
   }
-  .mode-tab:hover { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .mode-tab.active { border-color: var(--ink); background: #F0FBFB; }
-  .mode-tab-title { font-size: 13px; font-weight: 700; color: #1E293B; }
+  .mode-tab:hover { box-shadow: 0 1px 4px rgba(28,30,27,0.07); }
+  .mode-tab.active { border-color: var(--ink); background: #E3EEE9; }
+  .mode-tab-title { font-size: 13px; font-weight: 700; color: #1C1E1B; }
   .mode-tab-desc { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; line-height: 1.35; }
 
   .sim-controls { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
   .sim-sort { display: flex; gap: 8px; flex-wrap: wrap; }
   .sim-sort-btn {
-    border: 2px solid var(--border); background: white; border-radius: 999px; padding: 7px 14px;
+    border: 2px solid var(--border); background: var(--card); border-radius: 3px; padding: 7px 14px;
     font-size: 12px; font-weight: 600; color: var(--text-mid); cursor: pointer; font-family: inherit; white-space: nowrap;
   }
-  .sim-sort-btn.active { border-color: var(--teal); background: #F0FBFB; color: var(--teal-dark); }
+  .sim-sort-btn.active { border-color: var(--teal); background: #E3EEE9; color: var(--teal-dark); }
 
   .sim-summary { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
-  .sim-stat { flex: 1; min-width: 140px; background: white; border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+  .sim-stat { flex: 1; min-width: 140px; background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; }
   .sim-stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); margin-bottom: 4px; }
-  .sim-stat-value { font-size: 18px; font-weight: 700; color: #1E293B; }
+  .sim-stat-value { font-size: 18px; font-weight: 700; color: #1C1E1B; }
   .sim-stat-sub { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; }
 
-  .sim-table { width: 100%; border-collapse: separate; border-spacing: 0; background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .sim-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
   .sim-table th {
     text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-dim);
-    background: #F8FAFC; padding: 10px 12px; border-bottom: 1px solid var(--border); font-weight: 700;
+    background: #F3F2ED; padding: 10px 12px; border-bottom: 1px solid var(--border); font-weight: 700;
   }
   .sim-table th.num, .sim-table td.num { text-align: right; }
-  .sim-table td { padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #F1F5F9; color: #334155; vertical-align: middle; }
+  .sim-table td { padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #E7E5DE; color: #1C1E1B; vertical-align: middle; }
   .sim-table tr:last-child td { border-bottom: none; }
-  .sim-table tr:hover td { background: #FAFBFC; }
-  .sim-rank { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 6px; background: #F1F5F9; color: #64748B; font-size: 10.5px; font-weight: 700; }
+  .sim-table tr:hover td { background: #F3F2ED; }
+  .sim-rank { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 6px; background: #E7E5DE; color: #4A4C46; font-size: 10.5px; font-weight: 700; }
   .sim-rank.top { background: var(--teal); color: white; }
-  .sim-country { font-weight: 600; color: #1E293B; }
+  .sim-country { font-weight: 600; color: #1C1E1B; }
   .sim-region { font-size: 10.5px; color: var(--text-dim); }
-  .sim-cost { font-variant-numeric: tabular-nums; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-weight: 700; }
+  .sim-cost { font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; }
   .sim-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; }
-  .sim-badge.win { background: #F0FBFB; color: var(--teal-dark); }
-  .sim-badge.lose { background: #FEF2F2; color: #B91C1C; }
-  .sim-badge.tie { background: #F1F5F9; color: #64748B; }
+  .sim-badge.win { background: #E3EEE9; color: var(--teal-dark); }
+  .sim-badge.lose { background: #F6E4E1; color: #A12D22; }
+  .sim-badge.tie { background: #E7E5DE; color: #4A4C46; }
   .sim-none { padding: 40px; text-align: center; color: var(--text-dim); font-size: 13px; }
 
   .op-cell { display: flex; align-items: center; justify-content: flex-end; gap: 6px; }
-  .op-dot { width: 8px; height: 8px; border-radius: 999px; flex-shrink: 0; }
-  .op-cell.winner .op-cost { font-weight: 700; color: #1E293B; }
-  .op-cell.na { color: #CBD5E1; }
+  .op-dot { width: 8px; height: 8px; border-radius: 3px; flex-shrink: 0; }
+  .op-cell.winner .op-cost { font-weight: 700; color: #1C1E1B; }
+  .op-cell.na { color: #B5B2A6; }
   .winner-chip {
-    display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 3px;
     font-size: 11.5px; font-weight: 700; color: white;
   }
   .compare-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; font-size: 12px; color: var(--text-mid); }
 
   .you-tag {
     display: inline-block; font-size: 9.5px; font-weight: 700; text-transform: uppercase; color: var(--teal-dark);
-    background: #F0FBFB; border-radius: 4px; padding: 1px 5px; margin-left: 3px; vertical-align: middle;
+    background: #E3EEE9; border-radius: 4px; padding: 1px 5px; margin-left: 3px; vertical-align: middle;
   }
   .own-only { font-size: 9.5px; font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--text-dim); margin-top: 2px; }
   .op-cell.locked { opacity: 0.55; }
@@ -313,61 +320,115 @@
   .switch-note svg { width: 10px; height: 10px; flex-shrink: 0; }
 
   .esim-101 {
-    margin-top: 20px; background: white; border: 1px solid var(--border); border-radius: 16px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04); overflow: hidden;
+    margin-top: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(28,30,27,0.05); overflow: hidden;
   }
   .esim-101 summary {
     cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
     padding: 16px 20px; user-select: none;
   }
   .esim-101 summary::-webkit-details-marker { display: none; }
-  .esim-101-title { font-size: 13.5px; font-weight: 700; color: #0F172A; }
+  .esim-101-title { font-size: 13.5px; font-weight: 700; color: #1C1E1B; }
   #esim101Chevron svg { width: 16px; height: 16px; stroke: var(--text-dim); transition: transform .15s; flex-shrink: 0; }
   .esim-101[open] #esim101Chevron svg { transform: rotate(180deg); }
   .esim-101-grid {
     display: grid; grid-template-columns: 1fr; gap: 16px; padding: 0 20px 20px;
-    border-top: 1px solid #F1F5F9; padding-top: 18px;
+    border-top: 1px solid #E7E5DE; padding-top: 18px;
   }
   @media (min-width: 700px) { .esim-101-grid { grid-template-columns: repeat(3, 1fr); } }
   .esim-101-icon {
-    width: 30px; height: 30px; border-radius: 9px; background: #F0FBFB; display: flex; align-items: center;
+    width: 30px; height: 30px; border-radius: 4px; background: #E3EEE9; display: flex; align-items: center;
     justify-content: center; margin-bottom: 10px;
   }
   .esim-101-icon svg { width: 16px; height: 16px; stroke: var(--teal-dark); }
-  .esim-101-step-title { font-size: 12.5px; font-weight: 700; color: #1E293B; margin-bottom: 4px; }
+  .esim-101-step-title { font-size: 12.5px; font-weight: 700; color: #1C1E1B; margin-bottom: 4px; }
   .esim-101-step-text { font-size: 12px; color: var(--text-mid); line-height: 1.55; }
 
   .badge-ok, .badge-warn {
     display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600;
-    padding: 3px 8px; border-radius: 999px; white-space: nowrap;
+    padding: 3px 8px; border-radius: 3px; white-space: nowrap;
   }
-  .badge-ok { background: #F0FBFB; color: var(--teal-dark); }
+  .badge-ok { background: #E3EEE9; color: var(--teal-dark); }
   .badge-ok svg { width: 11px; height: 11px; }
   .badge-warn { background: var(--amber-bg); color: var(--amber); }
 
   .context-banner {
-    display: flex; align-items: flex-start; gap: 12px; background: #F8FAFC; border: 1px solid var(--border);
-    border-radius: 16px; padding: 16px 18px; margin-bottom: 16px;
+    display: flex; align-items: flex-start; gap: 12px; background: #F3F2ED; border: 1px solid var(--border);
+    border-radius: 6px; padding: 16px 18px; margin-bottom: 16px;
   }
   .context-banner svg { width: 18px; height: 18px; flex-shrink: 0; stroke: var(--text-dim); margin-top: 1px; }
-  .context-banner .op-chip { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 11px; flex-shrink: 0; }
-  .context-banner-title { font-size: 13.5px; font-weight: 700; color: #334155; margin-bottom: 3px; }
+  .context-banner .op-chip { width: 30px; height: 30px; border-radius: 3px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 11px; flex-shrink: 0; }
+  .context-banner-title { font-size: 13.5px; font-weight: 700; color: #1C1E1B; margin-bottom: 3px; }
   .context-banner-text { font-size: 12.5px; color: var(--text-mid); line-height: 1.5; }
-  .context-banner.active { background: #F0FBFB; border-color: #BFEAEA; }
+  .context-banner.active { background: #E3EEE9; border-color: #B9D6CB; }
   .context-banner.active .context-banner-title { color: var(--teal-dark); }
   .compare-legend span { display: inline-flex; align-items: center; gap: 6px; }
   .seo{margin-top:40px;padding-top:28px;border-top:1px solid var(--border);color:var(--text-mid);font-size:14px;line-height:1.6}
-  .seo h2{font-size:17px;color:#0F172A;margin:0 0 8px}
-  .seo-q{background:white;border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-top:8px}
+  .seo h2{font-size:17px;color:#1C1E1B;margin:0 0 8px}
+  .seo-q{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 14px;margin-top:8px}
   .seo-q summary{cursor:pointer;font-weight:600;color:var(--text)}
   .seo-q p{margin:8px 0 2px}
   .seo-links{margin-top:20px;font-size:12px}
   .seo-links a{color:var(--text-mid)}
   [hidden]{display:none !important}
+
+  /* ---- Ainalitic brand layer ---- */
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 28px; }
+  .brand svg { width: 26px; height: 26px; }
+  .brand-text { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.2rem; color: var(--accent); }
+  .brand-text span { color: var(--teal); }
+  .header .logo { display: none; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(1.6rem, 4.5vw, 2.1rem); letter-spacing: -0.01em; color: var(--ink); line-height: 1.15; }
+  .subtitle { font-size: 14px; margin-top: 6px; }
+  h2, .seo h2, .esim-101-title, .context-banner-title, .eu-banner-title { font-family: 'Fraunces', serif; font-weight: 500; }
+  .section-title, .list-title, .summary-label, .sim-stat-label, .step-unit, .tag, .sim-badge, .you-tag, .sim-table th, .op-chip, .usage-rate, .ticket-cost-label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: 0.06em;
+  }
+  .section-title { color: var(--accent); }
+  .section-num, .op-dot { border-radius: 999px; }
+  .section-num { background: var(--accent); }
+  .lang-toggle { border-radius: 4px; background: var(--card); }
+  .lang-btn { border-radius: 3px; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .lang-btn.active { background: var(--accent); }
+  .op-btn.active, .usage-btn.active, .mode-tab.active { border-color: var(--accent); background: var(--accent-tint); }
+  .usage-btn.active svg { stroke: var(--accent); }
+  .usage-rate { color: var(--accent); }
+  .sim-sort-btn.active { border-color: var(--accent); background: var(--accent-tint); color: var(--accent); }
+  .combo-input:focus-within { border-color: var(--accent); }
+  .combo-item.highlighted { background: var(--accent-tint); }
+  .clear-operator-btn { color: var(--accent); }
+  .summary-card { border: 2px solid var(--accent); }
+  .ticket.best { border-color: var(--teal); box-shadow: 0 0 0 2px var(--green-tint); }
+  .ticket-link { color: var(--accent); background: var(--accent-tint); border-color: #B7CFDD; }
+  .ticket-link:hover { background: #D5E4ED; }
+  .esim-101-icon { background: var(--accent-tint); }
+  .esim-101-icon svg { stroke: var(--accent); }
+  .context-banner.active { background: var(--accent-tint); border-color: #B7CFDD; }
+  .context-banner.active .context-banner-title { color: var(--accent); }
+  .seo-links a { color: var(--accent); }
+  a { color: var(--accent); }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <a class="brand" href="index.html" aria-label="Ainalitic home">
+    <svg viewBox="0 0 104 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="52" cy="52" r="48" fill="none" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="52" y1="4" x2="52" y2="12" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="100" y1="52" x2="92" y2="52" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="85.9" y1="85.9" x2="80.3" y2="80.3" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="52" y1="100" x2="52" y2="92" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="18.1" y1="85.9" x2="23.7" y2="80.3" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="4" y1="52" x2="12" y2="52" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="18.1" y1="18.1" x2="23.7" y2="23.7" stroke="#0E6FA4" stroke-width="3"/>
+      <line x1="52" y1="52" x2="80.3" y2="23.7" stroke="#1F8A6F" stroke-width="2" stroke-dasharray="3,3"/>
+      <circle cx="85.9" cy="18.1" r="5" fill="#1F8A6F"/>
+      <polygon points="52,12 68,52 36,52" fill="#0E6FA4"/>
+      <polygon points="52,92 68,52 36,52" fill="#5BB8D9"/>
+      <circle cx="52" cy="52" r="4" fill="#EFEEE9" stroke="#0E6FA4" stroke-width="1"/>
+    </svg>
+    <span class="brand-text">aina<span>litic</span></span>
+  </a>
   <div class="header">
     <div class="logo"></div>
     <div style="flex:1">
@@ -487,13 +548,13 @@
     <h2>About the eSIM &amp; Roaming Advisor</h2>
     <p>Going abroad and unsure how to get mobile data without a huge bill? This free tool compares travel eSIMs with your operator's roaming offers for your destination, trip length and expected data use, so you can see the cheapest option before you travel. It runs entirely in your browser and does not store your inputs.</p>
     <details class="seo-q"><summary>Is an eSIM cheaper than roaming?</summary><p>Often, but not always. In the EU/EEA you usually pay your normal home rates, so you may not need an eSIM at all. Outside the EU, a travel eSIM is frequently cheaper than your operator's roaming packages, especially for longer trips or heavy data use. The advisor compares both for your destination.</p></details><details class="seo-q"><summary>What is an eSIM?</summary><p>An eSIM is a digital SIM built into your phone. You install it by scanning a QR code, with no physical card. Your phone must support eSIM and be unlocked.</p></details><details class="seo-q"><summary>Can I keep my normal number with an eSIM?</summary><p>Yes. Most travel eSIMs add a second, data-only line, so your normal SIM stays active for calls and SMS. Messaging apps such as WhatsApp or Viber keep working over the eSIM data.</p></details><details class="seo-q"><summary>How accurate are the prices?</summary><p>The advisor gives estimates based on published offers and your expected usage. Prices and terms change, so always confirm the final price with the provider before you buy.</p></details><details class="seo-q"><summary>Do I need to buy anything for the EU?</summary><p>Usually not. EU/EEA roaming rules let you use your home plan at no extra charge, subject to your operator's fair-use limits. The advisor tells you when this applies.</p></details>
-    <p class="seo-links"><a href="index.html">Home</a> · <a href="gtc.html">General Terms</a> · <a href="cookies.html">Cookie Policy</a> · <a href="#" data-cookie-settings hidden>Cookie settings</a></p>
+    <p class="seo-links">© 2026 Ainalitic. All rights reserved. · <a href="index.html">Home</a> · <a href="gtc.html">General Terms</a> · <a href="cookies.html">Cookie Policy</a> · <a href="#" data-cookie-settings hidden>Cookie settings</a></p>
   </div>
   <div class="seo-bg" hidden>
     <h2>Относно eSIM и роуминг съветника</h2>
     <p>Пътувате в чужбина и не знаете как да имате мобилен интернет без висока сметка? Този безплатен инструмент сравнява туристически eSIM с роуминг офертите на вашия оператор според дестинацията, дните и очаквания ви интернет, за да видите най-изгодния вариант преди пътуване. Работи изцяло във вашия браузър и не съхранява въведените данни.</p>
     <details class="seo-q"><summary>По-евтин ли е eSIM от роуминг?</summary><p>Често да, но не винаги. В ЕС/ЕИП обикновено плащате по обичайния си тарифен план, така че може изобщо да не ви трябва eSIM. Извън ЕС туристическият eSIM често е по-евтин от роуминг пакетите на оператора, особено при по-дълги пътувания или много интернет. Съветникът сравнява и двете за вашата дестинация.</p></details><details class="seo-q"><summary>Какво е eSIM?</summary><p>eSIM е дигитална SIM карта, вградена във вашия телефон. Инсталира се чрез сканиране на QR код, без физическа карта. Телефонът трябва да поддържа eSIM и да е отключен.</p></details><details class="seo-q"><summary>Мога ли да запазя номера си с eSIM?</summary><p>Да. Повечето туристически eSIM добавят втора линия само за данни, така че обикновената ви SIM остава активна за обаждания и SMS. Приложения като WhatsApp или Viber работят през данните на eSIM.</p></details><details class="seo-q"><summary>Колко точни са цените?</summary><p>Съветникът дава приблизителни оценки по публикувани оферти и очакваното ви потребление. Цените и условията се променят, затова винаги потвърждавайте крайната цена при доставчика, преди да купите.</p></details><details class="seo-q"><summary>Трябва ли да купувам нещо за ЕС?</summary><p>Обикновено не. Правилата за роуминг в ЕС/ЕИП позволяват да ползвате плана си без допълнителна такса, при спазване на ограниченията за честа употреба на оператора. Съветникът показва кога това важи.</p></details>
-    <p class="seo-links"><a href="index.html">Начало</a> · <a href="gtc.html">Общи условия</a> · <a href="cookies.html">Политика за бисквитки</a> · <a href="#" data-cookie-settings hidden>Настройки за бисквитки</a></p>
+    <p class="seo-links">© 2026 Ainalitic. Всички права запазени. · <a href="index.html">Начало</a> · <a href="gtc.html">Общи условия</a> · <a href="cookies.html">Политика за бисквитки</a> · <a href="#" data-cookie-settings hidden>Настройки за бисквитки</a></p>
   </div>
   </section>
 </div>
