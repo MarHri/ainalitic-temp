@@ -3,78 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ainalitic &mdash; Tools that save time or money</title>
+<title>Ainalitic — Precision tools for the decisions that add up</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 104'%3E%3Ccircle cx='52' cy='52' r='48' fill='none' stroke='%230E6FA4' stroke-width='5'/%3E%3Cline x1='52' y1='52' x2='80.3' y2='23.7' stroke='%231F8A6F' stroke-width='3' stroke-dasharray='4,4'/%3E%3Ccircle cx='85.9' cy='18.1' r='7' fill='%231F8A6F'/%3E%3Cpolygon points='52,12 68,52 36,52' fill='%230E6FA4'/%3E%3Cpolygon points='52,92 68,52 36,52' fill='%235BB8D9'/%3E%3Ccircle cx='52' cy='52' r='5' fill='%23EFEEE9' stroke='%230E6FA4' stroke-width='1.5'/%3E%3C/svg%3E">
-<meta name="description" content="Ainalitic builds small tools that save you time or money. Start with the eSIM &amp; Roaming Advisor.">
+<meta name="description" content="Ainalitic builds a short list of tools engineered to save you time or money: ScreenGym, Best Roaming, Mobile Tariff Selection, and Strategy Consulting.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#EFEEE9;
+    --paper-dim:#E7E5DE;
     --ink:#1C1E1B;
     --ink-soft:#4A4C46;
     --rule:#CBC7BB;
     --accent:#0E6FA4;
+    --accent-soft:#DCEAF1;
     --green:#1F8A6F;
+    --green-soft:#DCEBE5;
+    --radius:2px;
   }
+
   *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
   @media (prefers-reduced-motion: reduce){
-    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
-  html{ height:100%; }
+
   body{
-    min-height:100vh;
     background:var(--paper);
     color:var(--ink);
     font-family:'Inter', sans-serif;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:32px 20px;
+    font-size:16px;
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(239,238,233,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 0;
   }
   .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-    margin-bottom:56px;
-  }
-  .logo-mark{ width:34px; height:34px; }
-  .logo-text{
+    gap:10px;
     font-family:'Fraunces', serif;
     font-weight:500;
-    font-size:1.5rem;
+    font-size:1.25rem;
     letter-spacing:0.01em;
+    color:var(--accent);
   }
-  .logo-text span{ color:var(--green); }
-  .logo-text .aina{ color:var(--accent); }
+  .logo-mark{ width:26px; height:26px; flex-shrink:0; }
+  .logo-text{ display:inline-block; }
+  .logo-accent{ color:var(--green); }
+  .nav-links{
+    display:flex;
+    gap:36px;
+    font-size:0.875rem;
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.02em;
+    text-transform:lowercase;
+  }
+  .nav-links a{
+    color:var(--ink-soft);
+    position:relative;
+    padding-bottom:4px;
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ color:var(--ink); }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:0; height:1px;
+    background:var(--accent);
+    transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after{ width:100%; }
 
-  .eyebrow{
+  .lang-switch{
     font-family:'JetBrains Mono', monospace;
     font-size:0.8rem;
+    letter-spacing:0.02em;
+    color:var(--ink);
+    background:transparent;
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    padding:6px 10px;
+    cursor:pointer;
+  }
+  .lang-switch:hover, .lang-switch:focus-visible{ border-color:var(--ink); }
+
+  .menu-toggle{
+    display:none;
+    background:none; border:none;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.875rem;
+    color:var(--ink);
+    cursor:pointer;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:120px 0 100px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    color:var(--accent);
     letter-spacing:0.08em;
     text-transform:uppercase;
-    color:var(--accent);
+    margin-bottom:28px;
     display:flex;
     align-items:center;
     gap:10px;
-    margin-bottom:24px;
   }
-  .eyebrow::before, .eyebrow::after{
+  .hero-eyebrow::before{
     content:'';
     width:22px; height:1px;
     background:var(--accent);
     display:inline-block;
   }
-
   h1{
     font-family:'Fraunces', serif;
     font-weight:400;
-    font-size:clamp(2.4rem, 7vw, 4rem);
-    line-height:1.08;
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.05;
     letter-spacing:-0.01em;
     max-width:14ch;
   }
@@ -83,141 +157,698 @@
     font-weight:300;
     color:var(--accent);
   }
-
-  .sub{
-    margin-top:24px;
-    max-width:44ch;
-    font-size:1.1rem;
+  .hero-sub{
+    margin-top:28px;
+    max-width:46ch;
+    font-size:1.15rem;
     color:var(--ink-soft);
-    line-height:1.55;
   }
-
-  .tool-btn{
-    margin-top:36px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.95rem;
-    color:#fff;
-    background:var(--accent);
-    text-decoration:none;
+  .hero-actions{
+    margin-top:44px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
     padding:14px 26px;
-    border-radius:2px;
-    transition:background 0.2s ease;
-  }
-  .tool-btn:hover, .tool-btn:focus-visible{ background:var(--green); }
-
-  .contact{
-    margin-top:40px;
     font-family:'JetBrains Mono', monospace;
-    font-size:0.95rem;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+    border-radius:var(--radius);
+    transition:all 0.2s ease;
+    border:1px solid var(--ink);
   }
-  .contact a{
+  .btn-primary{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .btn-primary:hover, .btn-primary:focus-visible{
+    background:var(--accent);
+    border-color:var(--accent);
+  }
+  .btn-ghost{
+    background:transparent;
     color:var(--ink);
-    text-decoration:none;
-    padding-bottom:3px;
+    border-color:var(--rule);
+  }
+  .btn-ghost:hover, .btn-ghost:focus-visible{
+    border-color:var(--ink);
+  }
+
+  /* ---------- LEDGER / SERVICES ---------- */
+  .ledger-section{
+    padding:96px 0 40px;
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:56px;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .section-title{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  }
+  .section-note{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    max-width:32ch;
+    text-align:right;
+  }
+
+  .ledger{
+    border-top:1px solid var(--ink);
+  }
+  .entry{
+    display:grid;
+    grid-template-columns:90px 1fr 1.3fr;
+    column-gap:32px;
+    row-gap:10px;
+    align-items:start;
+    padding:32px 0;
+    border-bottom:1px solid var(--rule);
+    transition:background 0.25s ease;
+  }
+  .entry:hover{ background:var(--paper-dim); }
+  .entry-code{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem;
+    color:var(--green);
+    letter-spacing:0.03em;
+    padding-top:4px;
+  }
+  .entry-name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.5rem;
+    display:block;
+    width:fit-content;
+    transition:color 0.2s ease;
+  }
+  .entry-name:hover, .entry-name:focus-visible{ color:var(--accent); }
+  .entry-desc{
+    color:var(--ink-soft);
+    font-size:0.98rem;
+    max-width:46ch;
+  }
+  .entry-cta{
+    grid-column:2 / 3;
+    justify-self:start;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.76rem;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--ink);
+    padding-bottom:2px;
+    border-bottom:1px solid var(--rule);
+    white-space:normal;
+    max-width:52ch;
+    line-height:1.5;
+    transition:border-color 0.2s ease, color 0.2s ease, gap 0.2s ease;
+  }
+  .entry-cta:hover, .entry-cta:focus-visible{
+    color:var(--accent);
+    border-color:var(--accent);
+    gap:12px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    padding:100px 0;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    display:grid;
+    grid-template-columns:1fr 1.5fr;
+    gap:64px;
+  }
+  .about-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    color:var(--accent);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .about-body p{
+    font-family:'Fraunces', serif;
+    font-weight:300;
+    font-size:clamp(1.3rem, 2.4vw, 1.7rem);
+    line-height:1.5;
+    color:var(--ink);
+  }
+  .about-body p + p{ margin-top:20px; }
+  .about-body em{ font-style:italic; color:var(--accent); }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    padding:100px 0 60px;
+    text-align:center;
+  }
+  .contact h2{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(2rem, 4vw, 2.8rem);
+    max-width:20ch;
+    margin:0 auto 20px;
+  }
+  .contact p{
+    color:var(--ink-soft);
+    max-width:42ch;
+    margin:0 auto 36px;
+  }
+  .contact-email{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1.1rem;
+    display:inline-block;
+    padding-bottom:4px;
     border-bottom:1px solid var(--ink);
     transition:color 0.2s ease, border-color 0.2s ease;
   }
-  .contact a:hover, .contact a:focus-visible{
+  .contact-email:hover, .contact-email:focus-visible{
     color:var(--accent);
     border-color:var(--accent);
   }
 
-  .app-links{
-    margin-top:40px;
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--rule);
+    padding:32px 0;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+  .footer-links{ display:flex; gap:12px 24px; flex-wrap:wrap; }
+  .footer-links a{ transition:color 0.2s ease; }
+  .footer-links a:hover, .footer-links a:focus-visible{ color:var(--ink); }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    .about{ grid-template-columns:1fr; gap:28px; }
+    .entry{
+      grid-template-columns:1fr;
+      gap:10px;
+      padding:26px 0;
+    }
+    .entry-cta{ justify-self:start; margin-top:6px; }
+    .section-note{ text-align:left; }
+  }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .nav-links{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--rule);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.3s ease;
+    }
+    .nav-links.open{ max-height:280px; }
+    .nav-links a{
+      padding:16px 20px;
+      width:100%;
+      border-bottom:1px solid var(--rule);
+    }
+    .menu-toggle{ display:block; }
+    .lang-switch{ margin:16px 20px; width:calc(100% - 40px); }
+    .hero{ padding:80px 0 64px; }
+    .hero-actions{ flex-direction:column; align-items:flex-start; }
+    .btn{ width:100%; justify-content:center; }
+  }
+  /* ---------- SERVICE DETAIL PAGE ---------- */
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    margin-bottom:40px;
+    padding-bottom:2px;
+    border-bottom:1px solid transparent;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .back-link:hover, .back-link:focus-visible{
+    color:var(--ink);
+    border-color:var(--rule);
+  }
+  .service-hero{
+    padding:80px 0 72px;
+    border-bottom:1px solid var(--rule);
+  }
+  .service-hero .entry-code{
+    font-size:1rem;
+    margin-bottom:16px;
+    display:block;
+  }
+  .service-hero h1{
+    max-width:none;
+    font-size:clamp(2.4rem, 5.4vw, 3.8rem);
+  }
+  .service-hero .hero-sub{ max-width:52ch; }
+  .service-body{
+    padding:80px 0 100px;
+  }
+  .service-body-inner{
+    max-width:640px;
+  }
+  .service-body h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.4rem;
+    margin-top:52px;
+    margin-bottom:16px;
+  }
+  .service-body h2:first-child{ margin-top:0; }
+  .service-body p{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    max-width:60ch;
+  }
+  .service-body p + p{ margin-top:16px; }
+  .service-cta{
+    margin-top:52px;
+    padding-top:44px;
+    border-top:1px solid var(--rule);
     display:flex;
     align-items:center;
-    justify-content:center;
-    gap:28px;
+    gap:20px;
     flex-wrap:wrap;
+  }
+  .coming-soon{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
     font-family:'JetBrains Mono', monospace;
     font-size:0.85rem;
-  }
-  .app-links a{
     color:var(--ink-soft);
-    text-decoration:none;
-    padding-bottom:3px;
-    border-bottom:1px solid var(--rule);
-    transition:color 0.2s ease, border-color 0.2s ease;
+    padding:18px 22px;
+    border:1px dashed var(--rule);
+    border-radius:var(--radius);
+    background:var(--paper-dim);
   }
-  .app-links a:hover, .app-links a:focus-visible{
-    color:var(--accent);
-    border-color:var(--accent);
+  .coming-soon::before{
+    content:'';
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--green);
+    flex-shrink:0;
   }
 
-  footer{
-    margin-top:64px;
-    text-align:center;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.75rem;
+  @media (max-width:640px){
+    .service-hero{ padding:56px 0 48px; }
+  }
+
+  /* ---------- LEGAL PAGE ---------- */
+  .legal-hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--rule);
+  }
+  .legal-hero h1{
+    max-width:none;
+    font-size:clamp(2.2rem, 4.6vw, 3.2rem);
+  }
+  .legal-hero .hero-sub{ max-width:60ch; }
+  .legal-body{
+    padding:64px 0 100px;
+  }
+  .legal-body-inner{
+    max-width:720px;
+  }
+  .legal-body h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.25rem;
+    margin-top:44px;
+    margin-bottom:14px;
+  }
+  .legal-body h2:first-child{ margin-top:0; }
+  .legal-body p{
     color:var(--ink-soft);
+    font-size:0.98rem;
+    max-width:66ch;
+  }
+  .legal-body p + p{ margin-top:14px; }
+  .legal-body ul{
+    color:var(--ink-soft);
+    font-size:0.98rem;
+    max-width:66ch;
+    padding-left:20px;
+    margin-top:10px;
+  }
+  .legal-body li{ margin-bottom:8px; }
+  .legal-note{
+    margin-top:52px;
+    padding:18px 22px;
+    border:1px dashed var(--rule);
+    border-radius:var(--radius);
+    background:var(--paper-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    max-width:66ch;
+  }
+
+  /* ---------- EMBEDDED TOOL ---------- */
+  .tool-embed{
+    margin-top:8px;
+    border:1px solid var(--rule);
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .tool-embed iframe{
+    display:block;
+    width:100%;
+    height:1400px;
+    border:0;
+  }
+  .tool-embed-fallback{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    padding:14px 18px;
+    background:var(--paper-dim);
+    border-top:1px solid var(--rule);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+  .tool-embed-fallback a{
+    color:var(--accent);
+    border-bottom:1px solid var(--accent);
+    padding-bottom:1px;
+  }
+
+  /* ---------- FULL-SCREEN TOOL PAGE ---------- */
+  html{ height:100%; }
+  body.tool-page{
+    height:100vh;
+    min-height:100vh;
+    margin:0;
     display:flex;
     flex-direction:column;
+    overflow:hidden;
+  }
+  .tool-page-bar{
+    flex:none;
+    display:flex;
     align-items:center;
-    gap:12px;
-  }
-  .footer-links{ display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-  footer a{
-    color:var(--ink-soft);
-    text-decoration:none;
+    gap:16px;
+    padding:14px 20px;
     border-bottom:1px solid var(--rule);
-    padding-bottom:2px;
-    transition:color 0.2s ease, border-color 0.2s ease;
+    background:var(--paper);
   }
-  footer a:hover, footer a:focus-visible{ color:var(--accent); border-color:var(--accent); }
+  .tool-page-bar .back-link{ margin-bottom:0; }
+  .tool-page-bar .tool-page-name{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-left:auto;
+  }
+  .tool-page-frame{
+    flex:1;
+    min-height:0;
+    width:100%;
+    border:0;
+    display:block;
+  }
 
-  @media (max-width:480px){
-    .logo-text{ font-size:1.3rem; }
-    .sub{ font-size:1rem; }
-  }
+  /* ---------- additions ---------- */
   [hidden]{ display:none !important; }
+  .entry-dev{
+    color:var(--ink-soft);
+    border-bottom:1px dashed var(--rule);
+    cursor:default;
+  }
+  .entry-dev:hover{ color:var(--ink-soft); border-color:var(--rule); gap:8px; }
+
 </style>
 <link rel="canonical" href="https://ainalitic.com/">
 </head>
 <body>
 
-<div class="logo">
-  <svg class="logo-mark" viewBox="0 0 104 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="52" cy="52" r="48" fill="none" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="52" y1="4" x2="52" y2="12" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="100" y1="52" x2="92" y2="52" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="85.9" y1="85.9" x2="80.3" y2="80.3" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="52" y1="100" x2="52" y2="92" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="18.1" y1="85.9" x2="23.7" y2="80.3" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="4" y1="52" x2="12" y2="52" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="18.1" y1="18.1" x2="23.7" y2="23.7" stroke="#0E6FA4" stroke-width="3"/>
-    <line x1="52" y1="52" x2="80.3" y2="23.7" stroke="#1F8A6F" stroke-width="2" stroke-dasharray="3,3"/>
-    <circle cx="85.9" cy="18.1" r="5" fill="#1F8A6F"/>
-    <polygon points="52,12 68,52 36,52" fill="#0E6FA4"/>
-    <polygon points="52,92 68,52 36,52" fill="#5BB8D9"/>
-    <circle cx="52" cy="52" r="4" fill="#EFEEE9" stroke="#0E6FA4" stroke-width="1"/>
-  </svg>
-  <span class="logo-text"><span class="aina">aina</span><span>litic</span></span>
-</div>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo">
+        <svg class="logo-mark" viewBox="0 0 104 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="52" cy="52" r="48" fill="none" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="52" y1="4" x2="52" y2="12" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="100" y1="52" x2="92" y2="52" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="85.9" y1="85.9" x2="80.3" y2="80.3" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="52" y1="100" x2="52" y2="92" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="18.1" y1="85.9" x2="23.7" y2="80.3" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="4" y1="52" x2="12" y2="52" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="18.1" y1="18.1" x2="23.7" y2="23.7" stroke="#0E6FA4" stroke-width="3"/>
+          <line x1="52" y1="52" x2="80.3" y2="23.7" stroke="#1F8A6F" stroke-width="2" stroke-dasharray="3,3"/>
+          <circle cx="85.9" cy="18.1" r="5" fill="#1F8A6F"/>
+          <polygon points="52,12 68,52 36,52" fill="#0E6FA4"/>
+          <polygon points="52,92 68,52 36,52" fill="#5BB8D9"/>
+          <circle cx="52" cy="52" r="4" fill="#EFEEE9" stroke="#0E6FA4" stroke-width="1"/>
+        </svg>
+        <span class="logo-text">aina<span class="logo-accent">litic</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#services" data-i18n="navServices">services</a>
+        <a href="#about" data-i18n="navAbout">about</a>
+        <a href="#contact" data-i18n="navContact">contact</a>
+        <select id="langSwitch" class="lang-switch" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="bg">BG</option>
+        </select>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<div class="eyebrow">Ainalitic Services</div>
-<h1>Small tools that <em>save</em> you time or money.</h1>
-<p class="sub">Each tool is narrow enough to get right and useful enough to keep. Start with the first one.</p>
+<main id="top">
 
-<a class="tool-btn" href="roaming-advisor.html">eSIM &amp; Roaming Advisor &rarr;</a>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow" data-i18n="heroEyebrow">Ainalitic Services</div>
+      <h1><span data-i18n="heroHeadline1">Small tools.</span> <em data-i18n="heroHeadlineEm">Exact</em> <span data-i18n="heroHeadline2">answers.</span></h1>
+      <p class="hero-sub" data-i18n="heroSub">Every tool Ainalitic makes aims at optimizing your time or your money — and because the two are almost always connected, most end up saving you both.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary" data-i18n="btnPrimary">See what we've built</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="btnSecondary">Get in touch</a>
+      </div>
+    </div>
+  </section>
 
-<div class="contact">
-  <a href="mailto:ainalitic@mail.bg">ainalitic@mail.bg</a>
-</div>
+  <section class="ledger-section" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title" data-i18n="servicesTitle">The directory</h2>
+        <p class="section-note" data-i18n="servicesNote">Four entries. Each one solves exactly one problem, precisely.</p>
+      </div>
 
-<div class="app-links">
-  <a href="https://play.google.com/store/apps/details?id=com.ainalitic.digiet" target="_blank" rel="noopener noreferrer">ScreenGym on Google Play &rarr;</a>
-  <a href="screengym-terms.html">ScreenGym &mdash; Terms &amp; Privacy &rarr;</a>
-</div>
+      <div class="ledger">
+
+        <div class="entry reveal">
+          <div class="entry-code">SG</div>
+          <a href="https://play.google.com/store/apps/details?id=com.ainalitic.digiet" target="_blank" rel="noopener noreferrer" class="entry-name">ScreenGym</a>
+          <div class="entry-desc" data-i18n="svcMcDesc">An app that doesn't restrict your screen time, but shows your consumption, gives you a Screen Persona, and an addiction level you need to know. The numbers are easy to see — then you decide how to better spend your time.</div>
+          <a href="https://play.google.com/store/apps/details?id=com.ainalitic.digiet" target="_blank" rel="noopener noreferrer" class="entry-cta"><span data-i18n="svcMcCta">Get the app</span> <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="entry reveal">
+          <div class="entry-code">ROAM</div>
+          <a href="roaming-advisor.html" class="entry-name">Best Roaming</a>
+          <div class="entry-desc" data-i18n="svcRoamDesc">When you travel abroad, your local operator's roaming charges can be steep — especially outside the EU/EEA, where they aren't regulated. eSIM offers now give you an alternative that can cut that cost. Check this tool before you travel to keep internet access under control, at the best price worldwide.</div>
+          <a href="roaming-advisor.html" class="entry-cta"><span data-i18n="svcRoamCta">Find the best offer before you travel (currently for travellers from Bulgaria)</span> <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="entry reveal">
+          <div class="entry-code">TRF</div>
+          <a href="tariff-advisor.html" class="entry-name">Mobile Tariff Selection</a>
+          <div class="entry-desc" data-i18n="svcTariffDesc">Tariffs keep getting more complicated, and every customer's needs are different. Tell us what you need and we'll point you to the best local operator option on the market (currently available for Bulgaria only).</div>
+          <a href="tariff-advisor.html" class="entry-cta"><span data-i18n="svcTariffCta">Find my tariff</span> <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="entry reveal">
+          <div class="entry-code">STR</div>
+          <a href="mailto:ainalitic@mail.bg" class="entry-name" data-i18n="svcStrategyName">Strategy Consulting</a>
+          <div class="entry-desc" data-i18n="svcStrategyDesc">For teams who need an outside, analytical read on a hard decision. Short engagements, direct recommendations, no padded decks.</div>
+          <a href="mailto:ainalitic@mail.bg" class="entry-cta"><span data-i18n="svcStrategyCta">Start a conversation</span> <span aria-hidden="true">→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap" style="display:contents;">
+      <div class="about-label reveal" data-i18n="aboutLabel">Why Ainalitic</div>
+      <div class="about-body reveal">
+        <p data-i18n="aboutP1">Time and money rarely run out separately — waste one and the other usually follows. So instead of chasing both at once, each Ainalitic tool targets one directly, precisely, and lets the other take care of itself.</p>
+        <p><span data-i18n="aboutP2a">The name is a mash of </span><em data-i18n="aboutP2Em">analytic</em><span data-i18n="aboutP2b"> and the discipline it takes to stay that way: every entry in the directory earns its place by being narrow, exact, and genuinely useful — not by being another service you forget to open.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2 class="reveal" data-i18n="contactHeadline">Have a problem worth being precise about?</h2>
+      <p class="reveal" data-i18n="contactSub">Whether it's a product question, a partnership, or a strategy engagement — reach out directly.</p>
+      <a href="mailto:ainalitic@mail.bg" class="contact-email reveal">ainalitic@mail.bg</a>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  <div class="footer-links">
-    <a href="gtc.html">General Terms &amp; Conditions</a>
-    <a href="cookies.html">Cookie Policy</a>
-    <a href="#" data-cookie-settings hidden>Cookie settings</a>
+  <div class="wrap">
+    <div class="footer-row">
+      <span data-i18n="footerCopyright">© 2026 Ainalitic. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <a href="gtc.html" data-i18n="footerTerms">General Terms &amp; Conditions</a>
+        <a href="cookies.html" data-i18n="footerCookies">Cookie Policy</a>
+        <a href="screengym-terms.html" data-i18n="footerScreengym">ScreenGym Terms &amp; Privacy</a>
+        <a href="#" data-cookie-settings hidden data-i18n="footerCookieSettings">Cookie settings</a>
+      </div>
+    </div>
   </div>
-  <span>&copy; 2026 Ainalitic. All rights reserved.</span>
 </footer>
 
+<script>
+const translations = {
+  en: {
+    navServices:"Services", navAbout:"About", navContact:"Contact",
+    heroEyebrow:"Ainalitic Services",
+    heroHeadline1:"Small tools.", heroHeadlineEm:"Exact", heroHeadline2:"answers.",
+    heroSub:"Every tool Ainalitic makes aims at optimizing your time or your money — and because the two are almost always connected, most end up saving you both.",
+    btnPrimary:"See what we've built", btnSecondary:"Get in touch",
+    servicesTitle:"The directory", servicesNote:"Four entries. Each one solves exactly one problem, precisely.",
+    svcMcDesc:"An Android app that doesn't restrict your screen time. It shows where your time goes, gives you a daily Persona and Screen Intensity score, and leaves the decision to you — you see the numbers, then you choose how to spend your time better.", svcMcCta:"Get the app",
+    svcRoamDesc:"When you travel abroad, your local operator's roaming charges can be steep — especially outside the EU/EEA, where they aren't regulated. eSIM offers now give you an alternative that can cut that cost. Check this tool before you travel to keep internet access under control, at the best price worldwide.", svcRoamCta:"Find the best offer before you travel (currently for travellers from Bulgaria)",
+    svcTariffDesc:"Tariffs keep getting more complicated, and every customer's needs are different. Tell us what you need and we'll point you to the best local operator option on the market (currently available for Bulgaria only).", svcTariffCta:"Find my tariff",
+    svcStrategyName:"Strategy Consulting", svcStrategyDesc:"For teams who need an outside, analytical read on a hard decision. Short engagements, direct recommendations, no padded decks.", svcStrategyCta:"Start a conversation",
+    aboutLabel:"Why Ainalitic",
+    aboutP1:"Time and money rarely run out separately — waste one and the other usually follows. So instead of chasing both at once, each Ainalitic tool targets one directly, precisely, and lets the other take care of itself.",
+    aboutP2a:"The name is a mash of ", aboutP2Em:"analytic", aboutP2b:" and the discipline it takes to stay that way: every entry in the directory earns its place by being narrow, exact, and genuinely useful — not by being another service you forget to open.",
+    contactHeadline:"Have a problem worth being precise about?",
+    contactSub:"Whether it's a product question, a partnership, or a strategy engagement — reach out directly.",
+    footerCookies:"Cookie Policy", footerScreengym:"ScreenGym Terms & Privacy", footerCookieSettings:"Cookie settings",
+    footerCopyright:"© 2026 Ainalitic. All rights reserved.",
+    footerTerms:"General Terms & Conditions",
+    backToDirectory:"Back to directory", seeOtherServices:"See the other services",
+  },
+  bg: {
+    navServices:"Услуги", navAbout:"За нас", navContact:"Контакти",
+    heroEyebrow:"Ainalitic Studio",
+    heroHeadline1:"Малки инструменти.", heroHeadlineEm:"Точни", heroHeadline2:"отговори.",
+    heroSub:"Ainalitic създава кратък списък от инструменти, проектирани да ви спестят пари, време или досадни предположения — всеки от тях достатъчно тесен, за да бъде направен добре, и достатъчно полезен, за да остане.",
+    btnPrimary:"Вижте какво създадохме", btnSecondary:"Свържете се с нас",
+    servicesTitle:"Списъкът", servicesNote:"Четири услуги. Всяка решава точно един проблем, прецизно.",
+    svcStrategyName:"Стратегическо консултиране", svcStrategyDesc:"За екипи, които се нуждаят от външен, аналитичен поглед върху трудно решение. Кратки ангажименти, директни препоръки, без излишни презентации.", svcStrategyCta:"Започнете разговор",
+    aboutLabel:"Защо Ainalitic",
+    aboutP1:"Повечето продукти са създадени да задържат вниманието ви. Ние създаваме обратното — инструменти, проектирани да отговорят добре на един въпрос и след това да се отдръпнат.",
+    aboutP2a:"Името е комбинация от ", aboutP2Em:"аналитичност", aboutP2b:" и дисциплината да останеш такъв: всеки запис в списъка заслужава мястото си, защото е тесен, точен и наистина полезен — а не поредното приложение, което забравяш да отвориш.",
+    contactHeadline:"Имате ли проблем, който заслужава прецизност?",
+    contactSub:"Независимо дали е въпрос за продукт, партньорство или стратегическо сътрудничество — свържете се директно.",
+    svcMcDesc:"Android приложение, което не ограничава екранното ви време. Показва къде отива времето ви, дава ви ежедневен Persona и Screen Intensity резултат и оставя решението на вас — виждате числата, а после сами избирате как да използвате времето си по-добре.", svcMcCta:"Вземете приложението",
+    svcRoamDesc:"Когато пътувате в чужбина, роумингът на вашия оператор може да е скъп — особено извън ЕС/ЕИП, където цените не са регулирани. eSIM офертите са алтернатива, която може да намали разхода. Проверете този инструмент преди пътуване, за да контролирате интернета си на най-добрата цена по света.", svcRoamCta:"Намерете най-добрата оферта преди пътуване (засега за пътуващи от България)",
+    svcTariffDesc:"Тарифите стават все по-сложни, а нуждите на всеки клиент са различни. Кажете ни от какво имате нужда и ще ви насочим към най-добрата оферта на местен оператор на пазара (засега само за България).", svcTariffCta:"Намерете моята тарифа",
+    footerCookies:"Политика за бисквитки", footerScreengym:"ScreenGym — условия и поверителност", footerCookieSettings:"Настройки за бисквитки",
+    footerCopyright:"© 2026 Ainalitic. Всички права запазени.",
+    footerTerms:"Общи условия",
+    backToDirectory:"Обратно към списъка", seeOtherServices:"Вижте другите услуги"
+  }
+};
+
+function applyLanguage(lang){
+  const dict = translations[lang] || translations.en;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.documentElement.lang = lang;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const langSwitch = document.getElementById('langSwitch');
+  if (!langSwitch) return;
+  langSwitch.addEventListener('change', (e) => applyLanguage(e.target.value));
+  const browserLang = (navigator.language || 'en').slice(0,2).toLowerCase();
+  const initialLang = translations[browserLang] ? browserLang : 'en';
+  langSwitch.value = initialLang;
+  applyLanguage(initialLang);
+});
+
+</script>
 <script src="consent.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => io.observe(el));
+  }
+});
+
+</script>
+
 </body>
 </html>
