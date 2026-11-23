@@ -639,7 +639,7 @@ const ICONS = {
 };
 
 /* ============================== STATE ============================== */
-const state = { mode: "single", operator: null, destination: null, days: 7, usage: "medium", simSort: "cheapest", compareSort: "cheapest", revolutCustomer: false, viberInstall: false, lang: "en" };
+const state = { mode: "single", operator: null, destination: null, days: 7, usage: "medium", simSort: "cheapest", compareSort: "cheapest", revolutCustomer: false, viberInstall: false, lang: (function(){try{return new URLSearchParams(location.search).get("lang")==="bg"?"bg":"en";}catch(e){return "en";}})() };
 
 /* ============================== HELPERS ============================== */
 function fmtEUR(n) {
